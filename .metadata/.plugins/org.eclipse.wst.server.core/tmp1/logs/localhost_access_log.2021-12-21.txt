@@ -1,0 +1,8 @@
+127.0.0.1 - - [21/Dec/2021:13:59:24 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:13:59:32 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 200 3087
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:13:59:33 +0800] "GET /Final_Assignment/authValidationCode HTTP/1.1" 200 1103
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:13:59:40 +0800] "POST /Final_Assignment/authLogin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:13:59:41 +0800] "GET /Final_Assignment/user_list.jsp HTTP/1.1" 200 6251
+127.0.0.1 - - [21/Dec/2021:16:24:21 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:16:24:22 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 200 3087
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:16:24:22 +0800] "GET /Final_Assignment/authValidationCode HTTP/1.1" 200 1227

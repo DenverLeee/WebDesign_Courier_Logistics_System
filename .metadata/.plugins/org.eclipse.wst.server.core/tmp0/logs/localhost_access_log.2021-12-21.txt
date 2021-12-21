@@ -1,0 +1,14 @@
+127.0.0.1 - - [21/Dec/2021:11:54:42 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:54:43 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 200 3087
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:54:44 +0800] "GET /Final_Assignment/authValidationCode HTTP/1.1" 200 1221
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:54:58 +0800] "POST /Final_Assignment/authLogin HTTP/1.1" 200 3123
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:54:58 +0800] "GET /Final_Assignment/authValidationCode HTTP/1.1" 200 1169
+127.0.0.1 - - [21/Dec/2021:11:57:46 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:57:47 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:58:52 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:11:59:18 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:12:00:09 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:12:00:48 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:12:00:56 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:12:01:14 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
+0:0:0:0:0:0:0:1 - - [21/Dec/2021:12:02:13 +0800] "GET /Final_Assignment/login.jsp HTTP/1.1" 404 1046
