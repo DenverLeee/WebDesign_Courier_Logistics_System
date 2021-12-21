@@ -1262,3 +1262,27 @@ org.eclipse.ecf.filetransfer.BrowseFileTransferException: HttpComponents connect
 
 !ENTRY org.eclipse.ui.navigator 4 0 2021-12-21 16:41:12.332
 !MESSAGE Cannot find navigator content extension (using triggerPoints) for object "<null>" parent path: "P/Servers". Check that you have an expression for this object in a navigatorContent triggerPoints or enablement.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 17:04:23.198
+!MESSAGE System property http.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 17:04:23.199
+!MESSAGE System property http.proxyPort is set to 2802 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 17:04:23.199
+!MESSAGE System property https.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 17:04:23.200
+!MESSAGE System property https.proxyPort is set to 2802 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 20:04:42.089
+!MESSAGE System property http.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 20:04:42.090
+!MESSAGE System property http.proxyPort is set to 2802 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 20:04:42.090
+!MESSAGE System property https.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2021-12-21 20:04:42.092
+!MESSAGE System property https.proxyPort is set to 2802 but should not be set.
