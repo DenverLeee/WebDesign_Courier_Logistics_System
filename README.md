@@ -6,11 +6,11 @@
 
 ## Develop Tools
 
-idea/eclipse/MyEclipse
+* idea/eclipse/MyEclipse
 
 ## Technology Framework
 
-JavaBean MVC JSP **Servlet** MySQL CSS JavaScript Bootstrap
+* JavaBean MVC JSP **Servlet** MySQL CSS JavaScript Bootstrap
 
 ## Function Description 
 
