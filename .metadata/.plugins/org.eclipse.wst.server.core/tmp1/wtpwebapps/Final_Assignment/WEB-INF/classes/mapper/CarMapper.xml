@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.dao.CarMapper">
+
+    <resultMap id="BaseResultMap" type="com.demo.vo.Car" >
+            <result column="id" property="id" />
+            <result column="car_name" property="carName" />
+            <result column="car_driver" property="carSiji" />
+            <result column="car_phone" property="carPhone" />
+            <result column="car_status" property="carStatus" />
+            <result column="car_text" property="carText" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`car_name`,`car_driver`,`car_phone`,`car_status`,`car_text`
+    </sql>
+
+    <insert id="doCreate" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.demo.vo.Car">
+        INSERT INTO `t_car`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                    <if test ='id != null'>`id`,</if>
+                    <if test ='carName != null'>`car_name`,</if>
+                    <if test ='carSiji != null'>`car_driver`,</if>
+                    <if test ='carPhone != null'>`car_phone`,</if>
+                    <if test ='carStatus != null'>`car_status`,</if>
+                    <if test ='carText != null'>`car_text`</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                    <if test ='id != null'>#{id},</if>
+                    <if test ='carName != null'>#{carName},</if>
+                    <if test ='carSiji != null'>#{carSiji},</if>
+                    <if test ='carPhone != null'>#{carPhone},</if>
+                    <if test ='carStatus != null'>#{carStatus},</if>
+                    <if test ='carText != null'>#{carText}</if>
+        </trim>
+    </insert>
+
+    <delete id="doRemoveBatch" parameterType="java.util.Collection">
+        DELETE FROM `t_car` WHERE `id` IN
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="doUpdate" parameterType="com.demo.vo.Car">
+        UPDATE `t_car`
+        <set>
+                <if test ='id != null'>`id` = #{id},</if>
+                <if test ='carName != null'>`car_name` = #{carName},</if>
+                <if test ='carSiji != null'>`car_driver` = #{carSiji},</if>
+                <if test ='carPhone != null'>`car_phone` = #{carPhone},</if>
+                <if test ='carStatus != null'>`car_status` = #{carStatus},</if>
+                <if test ='carText != null'>`car_text` = #{carText}</if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" /> FROM `t_car` WHERE `id` = #{id}
+    </select>
+
+    <select id="findAllSplit" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" /> FROM `t_car`
+        <where>
+            <if test="searchColumn != null and searchColumn != '' and keyword != null and keyword != ''">
+                ${searchColumn} LIKE CONCAT('%',#{keyword},'%')  AND
+            </if>
+            1=1
+        </where>
+        ORDER BY id ASC
+        <if test="startIndex != null and pageSize != null">
+            LIMIT #{startIndex},#{pageSize};
+        </if>
+    </select>
+    
+    <select id="getAllCount" parameterType="java.util.Map" resultType="Integer">
+        SELECT COUNT(*) FROM `t_car`
+        <where>
+            <if test="searchColumn != null and searchColumn != '' and keyword != null and keyword != ''">
+                ${searchColumn} LIKE CONCAT('%',#{keyword},'%')  AND
+            </if>
+            1=1
+        </where>
+    </select>
+</mapper>

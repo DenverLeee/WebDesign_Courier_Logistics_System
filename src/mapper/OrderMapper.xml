@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.dao.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.demo.vo.Order" >
+            <result column="id" property="id" />
+            <result column="order_receiver" property="orderName" />
+            <result column="order_rphone" property="orderPhone" />
+            <result column="order_raddress" property="orderAddress" />
+            <result column="order_sender" property="orderJiren" />
+            <result column="order_sphone" property="orderJiphone" />
+            <result column="order_saddress" property="orderJiaddress" />
+            <result column="order_carno" property="orderCarno" />
+            <result column="order_status" property="orderStatus" />
+            <result column="order_date" property="orderDate" />
+            <result column="order_text" property="orderText" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`order_receiver`,`order_rphone`,`order_raddress`,`order_sender`,`order_sphone`,`order_saddress`,`order_carno`,`order_status`,`order_date`,`order_text`
+    </sql>
+
+
+    <insert id="doCreate" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.demo.vo.Order">
+        INSERT INTO `t_order`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                    <if test ='id != null'>`id`,</if>
+                    <if test ='orderName != null'>`order_receiver`,</if>
+                    <if test ='orderPhone != null'>`order_rphone`,</if>
+                    <if test ='orderAddress != null'>`order_raddress`,</if>
+                    <if test ='orderJiren != null'>`order_sender`,</if>
+                    <if test ='orderJiphone != null'>`order_sphone`,</if>
+                    <if test ='orderJiaddress != null'>`order_saddress`,</if>
+                    <if test ='orderCarno != null'>`order_carno`,</if>
+                    <if test ='orderStatus != null'>`order_status`,</if>
+                    <if test ='orderDate != null'>`order_date`,</if>
+                    <if test ='orderText != null'>`order_text`</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                    <if test ='id != null'>#{id},</if>
+                    <if test ='orderName != null'>#{orderName},</if>
+                    <if test ='orderPhone != null'>#{orderPhone},</if>
+                    <if test ='orderAddress != null'>#{orderAddress},</if>
+                    <if test ='orderJiren != null'>#{orderJiren},</if>
+                    <if test ='orderJiphone != null'>#{orderJiphone},</if>
+                    <if test ='orderJiaddress != null'>#{orderJiaddress},</if>
+                    <if test ='orderCarno != null'>#{orderCarno},</if>
+                    <if test ='orderStatus != null'>#{orderStatus},</if>
+                    <if test ='orderDate != null'>#{orderDate},</if>
+                    <if test ='orderText != null'>#{orderText}</if>
+        </trim>
+    </insert>
+
+  
+    <delete id="doRemoveBatch" parameterType="java.util.Collection">
+        DELETE FROM `t_order` WHERE `id` IN
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+ 
+    <update id="doUpdate" parameterType="com.demo.vo.Order">
+        UPDATE `t_order`
+        <set>
+                <if test ='id != null'>`id` = #{id},</if>
+                <if test ='orderName != null'>`order_receiver` = #{orderName},</if>
+                <if test ='orderPhone != null'>`order_rphone` = #{orderPhone},</if>
+                <if test ='orderAddress != null'>`order_raddress` = #{orderAddress},</if>
+                <if test ='orderJiren != null'>`order_sender` = #{orderJiren},</if>
+                <if test ='orderJiphone != null'>`order_sphone` = #{orderJiphone},</if>
+                <if test ='orderJiaddress != null'>`order_saddress` = #{orderJiaddress},</if>
+                <if test ='orderCarno != null'>`order_carno` = #{orderCarno},</if>
+                <if test ='orderStatus != null'>`order_status` = #{orderStatus},</if>
+                <if test ='orderDate != null'>`order_date` = #{orderDate},</if>
+                <if test ='orderText != null'>`order_text` = #{orderText}</if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+  
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" /> FROM `t_order` WHERE `id` = #{id}
+    </select>
+
+   
+    <select id="findAllSplit" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" /> FROM `t_order`
+        <where>
+            <if test="searchColumn != null and searchColumn != '' and keyword != null and keyword != ''">
+                ${searchColumn} LIKE CONCAT('%',#{keyword},'%')  AND
+            </if>
+            1=1
+        </where>
+        ORDER BY id ASC
+        <if test="startIndex != null and pageSize != null">
+            LIMIT #{startIndex},#{pageSize};
+        </if>
+    </select>
+
+    <select id="getAllCount" parameterType="java.util.Map" resultType="Integer">
+        SELECT COUNT(*) FROM `t_order`
+        <where>
+            <if test="searchColumn != null and searchColumn != '' and keyword != null and keyword != ''">
+                ${searchColumn} LIKE CONCAT('%',#{keyword},'%')  AND
+            </if>
+            1=1
+        </where>
+    </select>
+</mapper>

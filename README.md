@@ -1,32 +1,21 @@
-# Courier_Logistics_Management_System
+# SWE306 Programming Elective II
 
-## Run Environment
+## Project Name: *Courier Logistics Management System*
 
-~~Java≥6~~ **Java16**、~~Tomcat≥7.0~~ **Tomcat8.0**、~~MySQL≥5.5~~ **MySql8.0**
+## :smiley: Please do following steps before execute program
 
-## Develop Tools
+1. Execute **Final_Assignment_Database.sql** file to create **final_assignment** database
 
-* idea/eclipse/MyEclipse
+2. Modify your own database password instead of **~~123~~** in this code
 
-## Technology Framework
+   ``<property name="password" value="123"></property>``
 
-* JavaBean MVC JSP **Servlet** MySQL CSS JavaScript Bootstrap
+   in **applicationContext.xml** file.
 
-## Function Description 
+3. <u>Administrator account</u> release: 
 
-> Login,
->
-> Registration
->
-> Logout
->
-> Addition
->
-> Deletion and management of user modules
->
-> Announcement modules
->
-> Order modules and vehicle modules
+   **User Name: admin**
 
-## Environment Set
-(apache-tomcat-8.0.49) in the folder.
+   **Password: 123456**
+
+4. Please open this project in browser 
